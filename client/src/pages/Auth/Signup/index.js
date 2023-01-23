@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Box, Heading, FormLabel, FormControl, Input, Button } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import validationSchema from "./validations";
 
 function Signup() {
   const formik = useFormik({
@@ -9,6 +10,7 @@ function Signup() {
       password: "",
       passwordConfirm: "",
     },
+    validationSchema,
     onSubmit: async (values, bag) => {
       console.log(values);
     },
