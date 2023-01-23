@@ -16,7 +16,9 @@ const AuthProvider = ({ children }) => {
         setUser(me);
         setLoggedIn(true);
         setLoading(false);
-      } catch (error) {setLoading(false)}
+      } catch (error) {
+        setLoading(false);
+      }
     })();
   }, []);
 
@@ -28,13 +30,14 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("refresh-token", data.refreshToken);
   };
 
-  const logout = async () => {
+  const logout = async (cb) => {
     setLoggedIn(false);
     setUser(null);
 
     await fetchLogout();
     localStorage.removeItem("access-token");
     localStorage.removeItem("refresh-token");
+    cb();
   };
 
   const values = {
