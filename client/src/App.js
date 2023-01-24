@@ -11,6 +11,9 @@ import Basket from "./pages/Basket";
 import Error from "./pages/Error";
 import Admin from "./pages/Admin";
 import ProtectedAdminRoute from "./pages/ProtectedAdminRoute";
+import AdminProducts from "./pages/Admin/AdminProducts";
+import Orders from "./pages/Admin/Orders";
+import Home from "./pages/Admin/Home";
 
 function App() {
   return (
@@ -28,7 +31,10 @@ function App() {
               <Route path="/profile" element={<Profile />} />
             </Route>
             <Route element={<ProtectedAdminRoute />}>
-              <Route path="/admin" element={<Admin />} />
+              <Route path="/admin" element={<Admin />}></Route>
+              <Route path="/admin/home" element={<Home />}></Route>
+              <Route path="/admin/products" element={<AdminProducts />}></Route>
+              <Route path="/admin/orders" element={<Orders />}></Route>
             </Route>
             <Route path="/basket" element={<Basket />}></Route>
             <Route path="/*" element={<Error />}></Route>
