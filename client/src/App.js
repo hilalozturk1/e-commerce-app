@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Basket from "./pages/Basket";
 import Error from "./pages/Error";
+import Admin from "./pages/Admin";
+import ProtectedAdminRoute from "./pages/ProtectedAdminRoute";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
             <Route path="/signup" element={<Signup />}></Route>
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route element={<ProtectedAdminRoute />}>
+              <Route path="/admin" element={<Admin />} />
             </Route>
             <Route path="/basket" element={<Basket />}></Route>
             <Route path="/*" element={<Error />}></Route>
